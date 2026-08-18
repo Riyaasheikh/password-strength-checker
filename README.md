@@ -74,8 +74,6 @@ npm install
 npm run dev
 Open http://localhost:5173 in your browser.
 
-![Cyber Shield Demo](https://github.com/user-attachments/assets/724c3f1f-7757-4607-936d-2e5b2200fa18)
-
 
 
 
