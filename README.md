@@ -1,36 +1,82 @@
-# Enterprise Password Strength & Security Analyzer
-**DecodeLabs Industrial Training - Project 1**
+# 🛡️ Cyber Shield: Password Strength & Security Analyzer
+> **DecodeLabs Industrial Training Kit — Project 1: Defensive Logic Engine**  
+> *Track: Junior Cybersecurity Analyst*
 
-A high-performance security utility built to analyze password policy compliance, mathematical Shannon Entropy, and real-time breach exposures using privacy-preserving k-Anonymity models.
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=flat-square)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![React + Vite](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB.svg?style=flat-square&logo=react)](https://vitejs.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Styling-Tailwind%20CSS%20v4-38B2AC.svg?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![GSAP](https://img.shields.io/badge/Animation-GSAP-88CE02.svg?style=flat-square&logo=greensock)](https://greensock.com/)
+[![Pytest Passed](https://img.shields.io/badge/Tests-Pytest%20Passing-brightgreen.svg?style=flat-square)](https://pytest.org/)
 
-## Security Architecture & Design Principles
+---
 
-1. **Short-Circuit Policy Validation:**
-   - Evaluates string composition in $O(n)$ linear time complexity using C-optimized Python generator expressions.
-   - Eliminates redundant iteration loops to minimize CPU overhead.
+## 📌 Strategic Overview & Objective
 
-2. **Shannon Entropy Engine:**
-   - Measures true information density in bits using:
-     $$H = -\sum_{i=1}^{n} p_i \log_2(p_i)$$
-   - Dynamically calculates character pool bounds ($N$), supporting standard ASCII ranges up to extended Unicode spaces ($143,000+$ symbols).
+Weak and compromised credentials account for over **81% of hacking-related data breaches**. The goal of Project 1 is to build a robust, defensive security validation engine that eliminates reliance on superficial policy checks by combining:
 
-3. **k-Anonymity Breach Intelligence:**
-   - Interfaces with the HaveIBeenPwned API without exposing raw passwords or full hashes.
-   - Hashes passwords locally via SHA-1, submitting only the first 5 hexadecimal prefix characters over TLS. Suffix matching is performed in-memory.
+1. **$O(n)$ Linear-Scan Short-Circuit Policy Validation**
+2. **Mathematical Shannon Entropy Analysis**
+3. **Unicode Expanded Character Pools ($143,000+$ symbols)**
+4. **Privacy-Preserving Breach Intelligence via $k$-Anonymity (HIBP API)**
 
-## Directory Structure
+---
+
+## ⚙️ Core Architecture & Engineering Principles
 
 ```text
-password-strength-checker/
-├── data/
-├── src/
-│   ├── core/
-│   │   ├── validator.py    # Policy & pattern rules engine
-│   │   └── entropy.py      # Shannon entropy calculation engine
-│   ├── services/
-│   │   └── pwned_service.py # HIBP API integration (k-Anonymity)
-│   └── utils/
-├── tests/
-│   └── test_validator.py  # Pytest suite
-├── main.py                # Rich CLI interface
-└── requirements.txt
+ ┌────────────────────────────────────────────────────────┐
+ │                   User Input String                    │
+ └───────────────────────────┬────────────────────────────┘
+                             │
+            ┌────────────────┼────────────────┐
+            ▼                ▼                ▼
+     ┌─────────────┐  ┌─────────────┐  ┌─────────────┐
+     │ validator.py│  │  entropy.py │  │  pwned.py   │
+     │  O(n) Rules │  │Shannon Bits │  │k-Anonymity  │
+     └──────┬──────┘  └──────┬──────┘  └──────┬──────┘
+            │                │                │
+            └────────────────┼────────────────┘
+                             ▼
+     ┌────────────────────────────────────────────────────┐
+     │ FastAPI Gateway (server.py) ──► React + GSAP Client│
+
+
+git clone [https://github.com/Riyaasheikh/password-strength-checker.git](https://github.com/Riyaasheikh/password-strength-checker.git)
+cd password-strength-checker
+
+# Initialize virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows (PowerShell):
+.\venv\Scripts\Activate.ps1
+# Linux/macOS:
+source venv/bin/activate
+
+# Install Python requirements
+pip install -r requirements.txt
+pip install fastapi uvicorn
+Run CLI Terminal Mode:
+Bash
+python main.py
+Run Automated Test Suite:
+Bash
+pytest
+2. Full-Stack Web App (FastAPI + React)
+Start the FastAPI Server (Port 8000):
+Bash
+uvicorn server:app --reload --port 8000
+Start the React + GSAP Frontend (Port 5173):
+Bash
+cd frontend
+npm install
+npm run dev
+Open http://localhost:5173 in your browser.
+
+<img width="1124" height="987" alt="Screenshot 2026-08-18 100359" src="https://github.com/user-attachments/assets/724c3f1f-7757-4607-936d-2e5b2200fa18" />
+
+
+
+
+
